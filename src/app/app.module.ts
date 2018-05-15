@@ -4,10 +4,12 @@ import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { LoaderService } from './providers/loader.service';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 
 // NG Translate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -17,8 +19,7 @@ import { ElectronService } from './providers/electron.service';
 
 import { WebviewDirective } from './directives/webview.directive';
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { MaterializeModule } from 'angular2-materialize';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    MaterializeModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -44,7 +46,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [ElectronService],
+  providers: [
+    ElectronService,
+    LoaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

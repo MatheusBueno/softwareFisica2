@@ -1,5 +1,26 @@
-<div class="container">
-  <h1 class="title">
-    {{ 'PAGES.HOME.TITLE' | translate }}
-  </h1>
-</div>
+<section class="valign-wrapper">
+  <div *ngIf="!loader" class="row">
+    <div class="col s12 m4 center-align">
+      <a class="waves-effect waves-light btn-large yellow darken-2 buttom">Aba 1</a>
+    </div>
+    <div class="col s12 m4">
+      <a class="waves-effect waves-light btn-large yellow darken-2 buttom">Aba 2</a>
+
+    </div>
+    <div class="col s12 m4">
+      <a class="waves-effect waves-light btn-large yellow darken-2 buttom">Animação</a>
+
+    </div>
+  </div>
+
+  <div *ngIf="loader" class="row">
+    <div class="spinner">
+      <div class="rect1 "></div>
+      <div class="rect2 yellow darken-1"></div>
+      <div class="rect3 "></div>
+      <div class="rect4 yellow darken-1"></div>
+      <div class="rect5"></div>
+    </div>
+  </div>
+
+</section>
