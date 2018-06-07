@@ -1,26 +1,25 @@
+<particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height">
+</particles>
 <section class="valign-wrapper">
-  <div *ngIf="!loader" class="row">
-    <div class="col s12 m4 center-align">
-      <a class="waves-effect waves-light btn-large yellow darken-2 buttom">Aba 1</a>
-    </div>
-    <div class="col s12 m4">
-      <a class="waves-effect waves-light btn-large yellow darken-2 buttom">Aba 2</a>
 
+  <div class="row start" *ngIf="start">
+    <div class="col s12 center-align">
+      <div class="random">
+        <span *ngFor="let l of generic"> {{ l[0] }} </span>
+      </div>
+      <br>
+      <br>
+      <a class="waves-effect waves-light btn hide" id="btn-start" (click)="start = !start">
+        <i class="material-icons right">chevron_right</i> Começar</a>
     </div>
-    <div class="col s12 m4">
-      <a class="waves-effect waves-light btn-large yellow darken-2 buttom">Animação</a>
+    <!--   <div class="col s12 m4 center-align">
+        <a class="waves-effect waves-light btn yellow-text text-darken-2 buttom">Aba 1</a>
+      </div> -->
 
-    </div>
   </div>
-
-  <div *ngIf="loader" class="row">
-    <div class="spinner">
-      <div class="rect1 "></div>
-      <div class="rect2 yellow darken-1"></div>
-      <div class="rect3 "></div>
-      <div class="rect4 yellow darken-1"></div>
-      <div class="rect5"></div>
-    </div>
+  <div class="row" *ngIf="!start">
+    <a class="waves-effect waves-light btn buttom" [routerLink]="['screen/', 'biografia']"> Biografia</a>
+    <a class="waves-effect waves-light btn buttom" [routerLink]="['screen/', 'motores']"> Motores</a>
+    <a class="waves-effect waves-light btn buttom"[routerLink]="['screen/', 'animacao']"> Animação</a>
   </div>
-
 </section>

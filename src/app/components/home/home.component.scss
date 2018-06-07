@@ -2,13 +2,59 @@ section {
   width: 100vw;
   height: 100vh;
   
-  background-color: #fafafa;
+  .start {
+    font-family: Orbitron;
+    text-transform: uppercase;
+    font-weight: 300;
+    
+    .random {
+  
+      span{
+        width: 40px;
+        display: inline-block;
+        font-size: 1.4em;
+        color: #fff;
+        text-shadow: 2px 2px 5px #333;
+      }
+    }
+  
+    #btn-start {
+      letter-spacing: 10px;
+      background-color: transparent;
+      text-shadow: 1px 1px 5px #333;
+      font-size: 1.1em;
+      box-shadow: none!important;
+    }
 
+    .show {
+      animation-name: show;
+      animation-duration: 3s;
+    }
+  
+    @keyframes show {
+      0% {
+         opacity: 0;
+      }
+      100% {
+         opacity: 1;
+      }
+   }
 
+   
+  }
+  
+  
+  
+  
   .buttom{
     min-width: 250px;
+    background-color: transparent;
+    border: 1px solid #fff     !important;
+    margin: 50px;
+    display: block;
 
   }
+
 
 
   /* SPINNER */

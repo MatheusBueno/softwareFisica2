@@ -1,11 +1,17 @@
-import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+import { ScreenComponent } from './components/screen/screen.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
     {
         path: '',
         component: HomeComponent
+    },
+    {
+        path: 'screen/:screen',
+        component: ScreenComponent
     }
 ];
 

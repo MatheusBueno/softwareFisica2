@@ -1,0 +1,29 @@
+<particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height">
+</particles>
+<section>
+  <div class="padding">
+    <div class="center-align" *ngIf="screen == 'biografia'">
+      <h1>Biografia</h1>
+      <div class="main">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam urna augue, eleifend in nunc congue, cursus cursus nisi. Proin
+        dapibus vehicula tincidunt. Ut sed mollis mi, sit amet eleifend magna. Ut non urna porttitor, dictum dui a, posuere
+        tellus. Fusce faucibus metus arcu, nec cursus dolor consequat vitae. Donec vehicula ligula at neque faucibus ultrices.
+        Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris ut quam vitae tortor consectetur ullamcorper.
+        Praesent ex leo, congue id elit quis, molestie sodales ex. Praesent a lorem cursus, tempus massa et, consequat sem.
+        Nam nec sem augue. Integer cursus, urna at varius euismod, dui risus pellentesque neque, et sodales magna neque ut
+        est. Pellentesque tortor enim, molestie id posuere in, placerat in neque. Morbi nulla nunc, consequat vitae mi ut,
+        rhoncus rhoncus lorem. Vestibulum bibendum ipsum in fermentum finibus. Ut eget suscipit quam. Pellentesque nec nunc
+        justo. Ut sollicitudin eu nisl et ullamcorper. Sed non luctus ante. Mauris eleifend, augue ut mattis euismod, quam
+        velit egestas purus, ut laoreet felis massa sagittis quam. Etiam feugiat vehicula tortor nec luctus. Quisque urna
+        sapien, cursus eget semper vel, congue at enim. Ut non blandit quam. Nunc sit amet mattis lacus, nec porta nunc.
+        Phasellus imperdiet eget nisi vel sollicitudin. Maecenas a euismod justo.
+      </div>
+    </div>
+    <div *ngIf="screen == 'motores'">
+      Motores
+    </div>
+    <div *ngIf="screen == 'animacao'">
+      Animação
+    </div>
+  </div>
+</section>

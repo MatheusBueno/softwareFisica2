@@ -21,6 +21,10 @@ import { WebviewDirective } from './directives/webview.directive';
 
 import { MaterializeModule } from 'angular2-materialize';
 
+// Import ParticlesModule
+import { ParticlesModule } from 'angular-particle';
+import { ScreenComponent } from './components/screen/screen.component';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -30,7 +34,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     HomeComponent,
-    WebviewDirective
+    WebviewDirective,
+    ScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    })
+    }),
+    ParticlesModule
   ],
   providers: [
     ElectronService,
