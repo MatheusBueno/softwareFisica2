@@ -1,6 +1,29 @@
 section {
   width: 100vw;
   height: 100vh;
+
+  .bk-card {
+    background-color: transparent;
+    border: 1px #fff solid;
+    cursor: pointer;
+    border-radius: 6px;
+    min-height: 375px;
+
+    .card-content {
+
+      .card-title {
+        margin: 25px;
+        font-size: 2.3em;
+        text-shadow: 1px 1px 3px #333;
+      }
+
+      p {
+        font-size: 1.18em;
+        font-weight: 300;
+        text-shadow: 2px 2px 3px #333;
+      }
+    }
+  }
   
   .start {
     font-family: Orbitron;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { LoaderService } from '../../providers/loader.service';
 
@@ -9,7 +10,7 @@ import { LoaderService } from '../../providers/loader.service';
 })
 export class HomeComponent implements OnInit {
   public generic: string[] = ['', '', '', '', '', '', ''];
-  public start = true;
+  public start = false;
   public loader = true;
   // Particle vars
   myStyle = {};
@@ -17,8 +18,32 @@ export class HomeComponent implements OnInit {
   width = 100;
   height = 100;
 
+  public links = [
+    {
+      title: 'Biografia',
+      image: 'assets/open-book.png',
+      description: 'Robert Stirling foi um pastor escocês e inventor do motor Stirling. Stirling nasceu em Cloag Farm perto de Methven,' +
+        'Perthshire e herdou do seu pai o interesse pela engenharia.',
+      link: 'biografia'
+    },
+    {
+      title: 'Motores',
+      image: 'assets/motor.png',
+      description: 'Motor Stirling é uma máquina térmica de ciclo fechado. É referido também como motor a ar quente,' +
+        ' por utilizar os gases atmosféricos como fluido de trabalho.',
+      link: 'motores'
+    },
+    {
+      title: 'Animação',
+      image: 'assets/video-player.png',
+      description: 'Animação do motor alfa.',
+      link: 'animacao'
+    },
+  ];
+
   constructor(
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -88,6 +113,10 @@ export class HomeComponent implements OnInit {
       }, finishTimer += delay);
     }
 
+  }
+
+  openScreen(link: string) {
+    this.router.navigate(['screen/', link]);
   }
 
 
