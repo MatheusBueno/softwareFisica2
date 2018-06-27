@@ -1,11 +1,10 @@
 {
-  "name": "angular-electron",
-  "version": "3.3.0",
-  "description": "Angular 5 with Electron (Typescript + SASS + Hot Reload)",
+  "name": "SoftwareFisica2",
+  "version": "1.0.0",
+  "description": "A project about stirling engine",
   "homepage": "https://github.com/maximegris/angular-electron",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "Matheus Bueno"
   },
   "keywords": [
     "angular",

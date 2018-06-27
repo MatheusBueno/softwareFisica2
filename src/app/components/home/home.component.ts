@@ -1,17 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { LoaderService } from '../../providers/loader.service';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public generic: string[] = ['', '', '', '', '', '', ''];
-  public start = false;
-  public loader = true;
+
   // Particle vars
   myStyle = {};
   myParams = {};
@@ -23,7 +19,7 @@ export class HomeComponent implements OnInit {
       title: 'Biografia',
       image: 'assets/open-book.png',
       description: 'Robert Stirling foi um pastor escocês e inventor do motor Stirling. Stirling nasceu em Cloag Farm perto de Methven,' +
-        'Perthshire e herdou do seu pai o interesse pela engenharia.',
+        'Perthshire ...',
       link: 'biografia'
     },
     {
@@ -36,20 +32,22 @@ export class HomeComponent implements OnInit {
     {
       title: 'Animação',
       image: 'assets/video-player.png',
-      description: 'Animação do motor alfa.',
+      description: 'O motor do tipo Stirling Alfa é constituído por dois cilindros independentes, onde o pistão quente é responsável pela ',
       link: 'animacao'
+    },
+    {
+      title: 'Autores',
+      image: 'assets/programmer.png',
+      description: 'Projeto desenvolvido por alunos da utfpr-cp para a disciplina de Física 2',
+      link: 'autor'
     },
   ];
 
   constructor(
-    private loaderService: LoaderService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    // Loader
-    this.loaderService.loader(this.loader, 1000).then((loader) => this.loader = loader);
-
     // Particles
     this.myStyle = {
       'position': 'fixed',
@@ -91,33 +89,9 @@ export class HomeComponent implements OnInit {
         },
       }
     };
-
-    this.animationLetter(this.generic, 115, 1500, 300, ['f', 'í', 's', 'i', 'c', 'a', '#', '2']);
-    setTimeout(() => {
-      if (document.getElementById('btn-start')) {
-        document.getElementById('btn-start').classList.remove('hide');
-        document.getElementById('btn-start').classList.add('show');
-      }
-    }, 3900);
-  }
-
-  animationLetter(array: string[], timer: number, finishTimer: number, delay: number, solution: string[]) {
-    const position = [];
-    for (let i = 0; i <= array.length; i++)
-      position[i] = setInterval(() => array[i] = (Math.random() * 9).toString(), timer);
-
-    for (let i = 0; i <= array.length; i++) {
-      setTimeout(() => {
-        clearInterval(position[i]);
-        array[i] = solution[i];
-      }, finishTimer += delay);
-    }
-
   }
 
   openScreen(link: string) {
     this.router.navigate(['screen/', link]);
   }
-
-
 }

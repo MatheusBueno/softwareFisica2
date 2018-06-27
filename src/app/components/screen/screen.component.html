@@ -1,29 +1,72 @@
-<particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height">
-</particles>
 <section>
-  <div class="padding">
-    <div class="center-align" *ngIf="screen == 'biografia'">
-      <h1>Biografia</h1>
-      <div class="main">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam urna augue, eleifend in nunc congue, cursus cursus nisi. Proin
-        dapibus vehicula tincidunt. Ut sed mollis mi, sit amet eleifend magna. Ut non urna porttitor, dictum dui a, posuere
-        tellus. Fusce faucibus metus arcu, nec cursus dolor consequat vitae. Donec vehicula ligula at neque faucibus ultrices.
-        Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris ut quam vitae tortor consectetur ullamcorper.
-        Praesent ex leo, congue id elit quis, molestie sodales ex. Praesent a lorem cursus, tempus massa et, consequat sem.
-        Nam nec sem augue. Integer cursus, urna at varius euismod, dui risus pellentesque neque, et sodales magna neque ut
-        est. Pellentesque tortor enim, molestie id posuere in, placerat in neque. Morbi nulla nunc, consequat vitae mi ut,
-        rhoncus rhoncus lorem. Vestibulum bibendum ipsum in fermentum finibus. Ut eget suscipit quam. Pellentesque nec nunc
-        justo. Ut sollicitudin eu nisl et ullamcorper. Sed non luctus ante. Mauris eleifend, augue ut mattis euismod, quam
-        velit egestas purus, ut laoreet felis massa sagittis quam. Etiam feugiat vehicula tortor nec luctus. Quisque urna
-        sapien, cursus eget semper vel, congue at enim. Ut non blandit quam. Nunc sit amet mattis lacus, nec porta nunc.
-        Phasellus imperdiet eget nisi vel sollicitudin. Maecenas a euismod justo.
+  <div class="container black-text">
+    <div class="row valign-wrapper">
+      <a class="margin-right-20 black-text" routerLink='/home'>
+        <i class="fas fa-arrow-left fa-2x"></i>
+      </a>
+      <h1 class="right"> {{ conteudo.title }} </h1>
+    </div>
+    <div class="main">
+
+      <!-- BIOGRAFIA -->
+      <div *ngIf="screen == 'biografia'">
+        <img class="responsive-img right margin-left margin-bottom" src="assets/Robert_Stirling.jpg">
+        <p> {{ conteudo.content }} </p>
       </div>
-    </div>
-    <div *ngIf="screen == 'motores'">
-      Motores
-    </div>
-    <div *ngIf="screen == 'animacao'">
-      Animação
+
+      <!-- MOTORES -->
+      <div *ngIf="screen == 'motores'">
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs" materialize="tabs">
+              <li class="tab col s3" *ngFor="let engine of engines; let i = index">
+                <a href="#engine{{i}}" class=" black-text ">{{ engine.title }}</a>
+              </li>
+            </ul>
+          </div>
+          <br>
+          <div *ngFor="let engine of engines; let i = index">
+            <div id="engine{{i}}" class="engine">
+              <h2> {{ engine.title }} </h2>
+              <p> {{ engine.description }} </p>
+              <img *ngIf="engine.image != null" class="center materialboxed" materialize="materialbox" [src]="engine.image">
+              <p> {{ engine.description2 }} </p>
+              <img *ngIf="engine.image2 != null" class="center materialboxed" materialize="materialbox" [src]="engine.image2">
+              <h2> {{ engine.title2 }} </h2>
+              <p> {{ engine.description3 }} </p>
+              <img *ngIf="engine.image3 != null" class="center materialboxed" materialize="materialbox" [src]="engine.image3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANIMACAO -->
+      <div *ngIf="screen == 'animacao'">
+        <p> {{ conteudo.content }} </p>
+        <br>
+        <div *ngIf="screen == 'animacao'" class="video-container">
+          <iframe frameborder="yes" width="600" height="300" src="https://wideo.co/embed/23570981529777282795?width=560&height=315&repeat=true&autoplay=true"></iframe>
+        </div>
+      </div>
+
+      <!-- AUTORES -->
+      <div *ngIf="screen == 'autor'">
+        <table class="bordered centered striped">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>RA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let auth of auths">
+              <td> {{ auth.name }} </td>
+              <td> {{ auth.ra }} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 </section>

@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { LoaderService } from './providers/loader.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 
@@ -24,6 +23,7 @@ import { MaterializeModule } from 'angular2-materialize';
 // Import ParticlesModule
 import { ParticlesModule } from 'angular-particle';
 import { ScreenComponent } from './components/screen/screen.component';
+import { StartComponent } from './components/start/start.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -35,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HomeComponent,
     WebviewDirective,
-    ScreenComponent
+    ScreenComponent,
+    StartComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,9 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     ParticlesModule
   ],
-  providers: [
-    ElectronService,
-    LoaderService],
+  providers: [ElectronService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

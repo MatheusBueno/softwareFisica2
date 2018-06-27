@@ -1,0 +1,15 @@
+<particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height">
+</particles>
+<section class="valign-wrapper">
+  <div class="row start">
+    <div class="col s12 center-align">
+      <div class="random">
+        <span *ngFor="let l of generic"> {{ l[0] }} </span>
+      </div>
+      <br>
+      <br>
+      <a class="waves-effect waves-light btn hide" id="btn-start" routerLink="/home">
+        <i class="material-icons right">chevron_right</i> Começar</a>
+    </div>
+  </div>
+</section>

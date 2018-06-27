@@ -1,20 +1,9 @@
 <particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height">
 </particles>
 <section class="valign-wrapper">
-  <div class="row start" *ngIf="start">
-    <div class="col s12 center-align">
-      <div class="random">
-        <span *ngFor="let l of generic"> {{ l[0] }} </span>
-      </div>
-      <br>
-      <br>
-      <a class="waves-effect waves-light btn hide" id="btn-start" (click)="start = !start">
-        <i class="material-icons right">chevron_right</i> Começar</a>
-    </div>
-  </div>
-  <div class="row" *ngIf="!start">
+  <div class="row">
     <div *ngFor="let link of links">
-      <div class="col l4 s12" (click)="openScreen(link.link)">
+      <div class="col s12 m6 l3" (click)="openScreen(link.link)">
         <div class="card bk-card hoverable">
           <div class="card-content white-text center-align">
             <img src="{{ link.image }}" width="90" alt="">
